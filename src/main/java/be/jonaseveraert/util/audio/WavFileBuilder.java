@@ -20,6 +20,39 @@ import java.util.logging.Logger;
  * Class for building Wav files.<p>
  * In the see also, I linked some resources that were key to making this class. (The first one is especially helpful if
  * you want to understand how the wav file is made) <p>
+ *
+ * <h6>Example code:</h6>
+ * <pre>{@code
+ *     // This code example also shows you how you can use the progressBarHandler and
+ *     // ProgressBarWindow
+ *
+ *     // We will copy this audio file twice into a new audiofile
+ *     File audioFile = new File("pathname for a wav file with the same specifications as the WavFileBuilder");
+ *
+ *     // Set up the progressbar
+ *     ProgressBarWindow pbWindow = new ProgressBarWindow();
+ *     ProgressBarHandler pbHandler = new ProgressBarHandler(pbWindow.getjPanel());
+ *
+ *     // Create the WavFileBuilder
+ *     WavFileBuilder wavFileBuilder = new WavFileBuilder(AUDIOFORMAT_PCM, 2, 22050, 16, pbHandler);
+ *
+ *     // For this example, I will add the same audio track 10 times to the
+ *     // wav file we are creating
+ *     for (int i = 0; i < 10; i++) {
+ *         wavFileBuilder.addAudioFile(audioFile);
+ *     }
+ *
+ *     // The path to which the wav file will be saved
+ *     File outputFile = new File("pathname for the outputfile");
+ *
+ *     // Show the progressbar and start creating and saving the wavfile
+ *     pbWindow.setVisible(true);
+ *     wavFileBuilder.saveFile(outputFile);
+ *
+ *     // Close the window again
+ *     pbWindow.setVisible(false);
+ *     pbWindow.dispose();
+ * }</pre>
  * @author Jonas Everaert
  * @author <a href="https://jonaseveraert.be">jonaseveraert.be</a>
  * @version %I%

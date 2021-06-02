@@ -4,9 +4,72 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a9aea1c-eec3-47fc-8566-f5e04d93d2ac" name="Default Changelist" comment="Added maven stuff">
+    <list default="true" id="9a9aea1c-eec3-47fc-8566-f5e04d93d2ac" name="Default Changelist" comment="Regular commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/arrays/ArrayUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/arrays/OutputArraySizeTooLargeException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/audio/WavFileBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/audio/WavFileBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/compression/Compressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/compression/Compressor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/ByteArrayCannotBeCompressedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Compressor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Decompressor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/compression/InvalidCompressionLevelException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/allclasses-noframe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/ArrayUtils.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/ArrayUtils.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/OutputArraySizeTooLargeException.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/OutputArraySizeTooLargeException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/class-use/ArrayUtils.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/class-use/ArrayUtils.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/class-use/OutputArraySizeTooLargeException.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/class-use/OutputArraySizeTooLargeException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/package-use.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/WavFileBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/WavFileBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/class-use/WavFileBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/class-use/WavFileBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/audio/package-use.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/ByteArrayCannotBeCompressedException.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/ByteArrayCannotBeCompressedException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/Compressor.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/Compressor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/Decompressor.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/Decompressor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/InvalidCompressionLevelException.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/InvalidCompressionLevelException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/class-use/ByteArrayCannotBeCompressedException.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/class-use/ByteArrayCannotBeCompressedException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/class-use/Compressor.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/class-use/Compressor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/class-use/Decompressor.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/class-use/Decompressor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/class-use/InvalidCompressionLevelException.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/class-use/InvalidCompressionLevelException.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/compression/package-use.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/ProgressBarHandler.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/ProgressBarHandler.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/class-use/ProgressBarHandler.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/class-use/ProgressBarHandler.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/ProgressBarWindow.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/ProgressBarWindow.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/class-use/ProgressBarHandler.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/class-use/ProgressBarHandler.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/class-use/ProgressBarWindow.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/class-use/ProgressBarWindow.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/desktop/package-use.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/progressBar/package-use.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/deprecated-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/index-all.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/index-all.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/package-list" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/package-list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/serialized-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622658801115</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Regular commit">
+      <created>1622660102392</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1622660102393</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,6 +159,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added the other elements of the 1.0 release" />
     <MESSAGE value="Added maven stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added maven stuff" />
+    <MESSAGE value="Regular commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Regular commit" />
   </component>
 </project>

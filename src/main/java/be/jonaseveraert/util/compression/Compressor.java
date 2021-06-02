@@ -78,10 +78,10 @@ public class Compressor {
     }
 
     /**
-     * Compresses the {@link #input byte array} using the {@link Deflater Deflater} class, with the {@link #compressionLevel be.jonaseveraert.util.compression level}
+     * Compresses the {@link #input byte array} using the {@link Deflater Deflater} class, with the {@link #compressionLevel compression level}
      * that can be set with the {@link #setCompressionLevel(int) setCompressionLevel(int)} method
      * @return A compressed byte array based on the {@link #input input byte array}
-     * @throws ByteArrayCannotBeCompressedException Thrown when the output size of the be.jonaseveraert.util.compression is equal to, or bigger
+     * @throws ByteArrayCannotBeCompressedException Thrown when the output size of the compression is equal to, or bigger
      * than the input length.<p>When this exception is thrown, you should therefore use the input instead of the compressed
      * form in the code that follows this method.</p>
      */
