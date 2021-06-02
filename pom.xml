@@ -7,7 +7,7 @@
     <!-- Project -->
     <groupId>be.jonaseveraert.utils</groupId>
     <artifactId>jonas-utils</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
 
     <name>Jonas' Utils</name>
     <description>
@@ -46,6 +46,7 @@
     </dependencies>
 
     <!-- Deploying on Maven Central: https://dzone.com/articles/how-to-create-a-java-library-from-scratch-to-maven -->
+    <!-- Also see https://central.sonatype.org/publish/publish-maven/ -->
 
 
     <licenses>
@@ -136,6 +137,7 @@
             </build>
         </profile>
     </profiles>
+
 
     <distributionManagement>
         <snapshotRepository>
