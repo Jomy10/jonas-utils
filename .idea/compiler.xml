@@ -9,5 +9,8 @@
         <module name="jonas-utils" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jonas-utils" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
