@@ -62,7 +62,7 @@ import java.util.logging.Logger;
  * @see <i>WAVE PCM soundfile format</i>. Stanford.edu (Dec 10, 2008). <a href="https://web.archive.org/web/20081210162727/https://ccrma.stanford.edu/CCRMA/Courses/422/projects/WaveFormat/">Wayback machine link</a>
  * @see <i>Java Sound Tutorials</i>. <a href = "https://docs.oracle.com/javase/tutorial/sound/converters.html">Java Docs (27 may 2021).</a>
  */
-public class WavFileBuilder {
+public class WaveFileBuilder {
     // Strings are in big endian, int in little endian
     private final String chunkID = "RIFF";
     private int chunkSize;
@@ -83,7 +83,7 @@ public class WavFileBuilder {
     private int subchunk2Size;
 
     // Logging
-    Logger logger = Logger.getLogger(WavFileBuilder.class.getName());
+    Logger logger = Logger.getLogger(WaveFileBuilder.class.getName());
 
     // Progress bar
     ProgressBarHandler pbHandler;
@@ -110,11 +110,11 @@ public class WavFileBuilder {
      * @param numChannels The number of channels the wav file will have {@link #NUM_CHANNELS_MONO MONO} = 1,
      *                    {@link #NUM_CHANNELS_STEREO STEREO} = 2
      * @param sampleRate The sample rate of the wav file in Hz (e.g. 22050, 44100, ...)
-     * @param bitsPerSample The amount of bits per sample. If 16 bits, the be.jonaseveraert.util.audio sample will contain 2 bytes per
+     * @param bitsPerSample The amount of bits per sample. If 16 bits, the audio sample will contain 2 bytes per
      *                      channel. (e.g. 8, 16, ...). This is important to take into account when using the
      *                      {@link #addBytes(byte[]) addBytes} method to insert data into the wav file.
      */
-    public WavFileBuilder(int audioFormat, int numChannels, int sampleRate, int bitsPerSample) {
+    public WaveFileBuilder(int audioFormat, int numChannels, int sampleRate, int bitsPerSample) {
         this.audioFormat = audioFormat;
         this.numChannels = numChannels;
         this.sampleRate = sampleRate;
@@ -149,7 +149,7 @@ public class WavFileBuilder {
      * @param pbHandler A ProgressBarHandler can be any class that implements the {@link ProgressBarHandler ProgressBarHandler interface}.
      *                  This object will be used to manipulate a progressbar depending on how much work the process of saving the audio still has left.
      */
-    public WavFileBuilder(int audioFormat, int numChannels, int sampleRate, int bitsPerSample, ProgressBarHandler pbHandler) {
+    public WaveFileBuilder(int audioFormat, int numChannels, int sampleRate, int bitsPerSample, ProgressBarHandler pbHandler) {
         this.audioFormat = audioFormat;
         this.numChannels = numChannels;
         this.sampleRate = sampleRate;
