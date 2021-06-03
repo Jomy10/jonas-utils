@@ -8,6 +8,8 @@ package be.jonaseveraert.util.arrays;
  */
 public abstract class ArrayUtils {
 
+    // Todo: also make all methods without explicit type in the name for other array types
+    // Byte Arrays //
     /**
      * Copies a srcArray, but only the first bytes until {@code outputArraySize}.
      * @param srcArray the array you want to copy from
@@ -45,5 +47,37 @@ public abstract class ArrayUtils {
             throw new OutputArraySizeTooLargeException("The array could not be copied because the outputArraySize is bigger than the srcArray", e);
         }
         return partArray;
+    }
+
+    /**
+     * Inverts all bytes in an array
+     * @param bytes the array you want to invert
+     * @return a new array containing the inverted bytes
+     */
+    public static byte[] invertByteArray(byte[] bytes) {
+        if (bytes == null) {
+            return null;
+            // TODO: throw empty byte array expcetion
+        }
+
+        byte[] outputArray = new byte[bytes.length];
+        for(int i = 0; i < bytes.length; i++) {
+            outputArray[i] = (byte) ~bytes[i];
+        }
+        return outputArray;
+    }
+
+    /**
+     * Repeats an array into a new array x times
+     * @param array the array you want to copy x times
+     * @param repeat the amount of times you want to copy the array into the new array
+     * @return an array containing the content of {@code array} {@code repeat} times.
+     */
+    public static byte[] repeatArray(byte[] array, int repeat) {
+        byte[] result = new byte[array.length * repeat];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = array[i % array.length];
+        }
+        return result;
     }
 }

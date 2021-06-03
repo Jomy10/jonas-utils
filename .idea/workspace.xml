@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a9aea1c-eec3-47fc-8566-f5e04d93d2ac" name="Default Changelist" comment="Regular commit">
+    <list default="true" id="9a9aea1c-eec3-47fc-8566-f5e04d93d2ac" name="Default Changelist" comment="Added code example for WavFileBuilder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/arrays/ArrayUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/arrays/OutputArraySizeTooLargeException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/arrays/ArrayUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/arrays/ArrayUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/audio/WavFileBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/audio/WavFileBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/compression/Compressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/compression/Compressor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/compression/ByteArrayCannotBeCompressedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Compressor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/compression/Decompressor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/compression/InvalidCompressionLevelException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/allclasses-noframe.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/ArrayUtils.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/ArrayUtils.html" afterDir="false" />
@@ -65,11 +59,9 @@
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-frame.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apidocs/package-list" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/package-list" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/serialized-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/be/jonaseveraert/util/audio/WavFileBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/be/jonaseveraert/util/audio/WavFileBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622660102393</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added code example for WavFileBuilder">
+      <created>1622665048647</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622665048647</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +159,7 @@
     <MESSAGE value="Added the other elements of the 1.0 release" />
     <MESSAGE value="Added maven stuff" />
     <MESSAGE value="Regular commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Regular commit" />
+    <MESSAGE value="Added code example for WavFileBuilder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added code example for WavFileBuilder" />
   </component>
 </project>

@@ -16,12 +16,13 @@ import java.util.logging.Logger;
 
 // TODO: support a progress bar class (give a progress bar object in the constructor) -> interface
 
+// TODO: rename to WaveFileBuilder (also the coode example)
 /**
- * Class for building Wav files.<p>
- * In the see also, I linked some resources that were key to making this class. (The first one is especially helpful if
- * you want to understand how the wav file is made) <p>
+ * <p>Class for building Wav files.</p>
+ * <p>In the see also, I linked some resources that were key to making this class. (The first one is especially helpful if
+ * you want to understand how the wav file is made)</p>
  *
- * <h6>Example code:</h6>
+ * <p>Code example:</p>
  * <pre>{@code
  *     // This code example also shows you how you can use the progressBarHandler and
  *     // ProgressBarWindow
@@ -211,14 +212,14 @@ public class WavFileBuilder {
             }
             // frame = sample
             long numSamples = audioInputStream.getFrameLength();
-            System.out.println("bytesPerSample: " + bytesPerSample );
 
             // Determine the amount of bytes the data of the file contains
             int numBytes = (int) (numSamples * bytesPerSample);
+            // Check if it is the same as the WavFileBuilder specifications
             if (bytesPerSample != (bitsPerSample / 8) * numChannels) {
                 System.out.println("bitsPerSample: " + bitsPerSample + " | numChannels: " + numChannels);
                 // TODO: convert file
-                logger.log(Level.WARNING, "The bytesPerSample of the inputted file does not equal that of the be.jonaseveraert.util.be.jonaseveraert.util.audio.WavFile you are building. TODO: file conversion");
+                logger.log(Level.WARNING, "The bytesPerSample of the inputted file does not equal that of the WavFile you are building. TODO: file conversion");
                 return false;
             }
             byte[] audioBytes = new byte[numBytes];
@@ -402,5 +403,31 @@ public class WavFileBuilder {
             hex.append(hexChar);
         }
         return hex.toString().trim();
+    }
+
+    /**
+     * Converts a wav file to a byte array containing its audio data
+     * @param file the wav file you want to convert
+     * @return the data part of a wav file in byte form
+     */
+    public static byte[] fileToByteArrray(File file) throws UnsupportedAudioFileException, IOException {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+        AudioFormat audioFormat = audioInputStream.getFormat();
+
+        int bytesPerSample = audioFormat.getFrameSize();
+        if (bytesPerSample == AudioSystem.NOT_SPECIFIED) {
+            bytesPerSample = -1;
+        }
+
+        long numSamples = audioInputStream.getFrameLength();
+
+        int numBytes = (int) (numSamples * bytesPerSample);
+
+        byte[] audioBytes = new byte[numBytes];
+
+        int numBytesRead;
+        while((numBytesRead = audioInputStream.read(audioBytes)) != -1);
+
+        return audioBytes;
     }
 }
