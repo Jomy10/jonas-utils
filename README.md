@@ -7,4 +7,7 @@ I just hope this can be useful for someone.
 You can copy the dependencie or download the library from Maven Centra
 Maven Central: https://search.maven.org/artifact/be.jonaseveraert.utils/jonas-utils/1.0.0/jar
 
+Source code in the src folder
+Other folders contain javadoc and stuff.
+
 P.S. I'll add a better README later with instructions
