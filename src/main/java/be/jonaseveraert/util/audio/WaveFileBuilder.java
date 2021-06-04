@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -56,34 +58,34 @@ import java.util.logging.Logger;
  * }</pre>
  * @author Jonas Everaert
  * @author <a href="https://jonaseveraert.be">jonaseveraert.be</a>
- * @version %I%
  * @since 1.0
  *
- * @see <i>WAVE PCM soundfile format</i>. Stanford.edu (Dec 10, 2008). <a href="https://web.archive.org/web/20081210162727/https://ccrma.stanford.edu/CCRMA/Courses/422/projects/WaveFormat/">Wayback machine link</a>
- * @see <i>Java Sound Tutorials</i>. <a href = "https://docs.oracle.com/javase/tutorial/sound/converters.html">Java Docs (27 may 2021).</a>
+ * @see <a href="https://web.archive.org/web/20081210162727/https://ccrma.stanford.edu/CCRMA/Courses/422/projects/WaveFormat/"><i>WAVE PCM soundfile format</i>. Stanford.edu (Dec 10, 2008). (Wayback machine link)</a>
+ * @see <a href="https://docs.oracle.com/javase/tutorial/sound/converters.html"><i>Java Sound Tutorials</i>.  Java Docs (27 may 2021).</a>
  */
 public class WaveFileBuilder {
     // Strings are in big endian, int in little endian
-    private final String chunkID = "RIFF";
-    private int chunkSize;
-    private final String format = "WAVE";
+    final String chunkID = "RIFF";
+    int chunkSize;
+    final String format = "WAVE";
 
     // Sub chunk 1: format (fmt)
-    private final String subchunk1ID = "fmt ";
-    private int subchunk1Size = 16; // TODO: make dynamic to support the ExtraParams field (for future)
-    private final int audioFormat;
-    private final int numChannels;
-    private final int sampleRate;
-    private final int byteRate;
-    private final int blockAlign;
-    private final int bitsPerSample;
+    final String subchunk1ID = "fmt ";
+    int subchunk1Size = 16; // TODO: make dynamic to support the ExtraParams field (is it really necessary?)
+    final int audioFormat;
+    final int numChannels;
+    final int sampleRate;
+    final int byteRate;
+    final int blockAlign;
+    final int bitsPerSample;
 
     // Sub chunk 2: data
-    private final String subchunk2ID = "data";
-    private int subchunk2Size;
+    final String subchunk2ID = "data";
+    int subchunk2Size;
 
     // Logging
-    Logger logger = Logger.getLogger(WaveFileBuilder.class.getName());
+    final Logger logger = Logger.getLogger(WaveFileBuilder.class.getName());
+    // TODO: remove the logger and throw exceptions instead
 
     // Progress bar
     ProgressBarHandler pbHandler;
@@ -104,7 +106,7 @@ public class WaveFileBuilder {
      * One is {@link #addBytes(byte[]) addBytes} which lets you directly inject bytes
      * into the data section of the wav file.
      * The other is {@link #addAudioFile(File) addAudioFile} which lets you add the audio
-     * data of another file to the wav file's audio data.
+     * data of another wav file to the wav file's audio data.
      *
      * @param audioFormat The be.jonaseveraert.util.audio format of the wav file {@link #AUDIOFORMAT_PCM PCM} = 1
      * @param numChannels The number of channels the wav file will have {@link #NUM_CHANNELS_MONO MONO} = 1,
@@ -175,24 +177,28 @@ public class WaveFileBuilder {
     }
 
     /**
-     * Contains the be.jonaseveraert.util.audio data for the wav file that is being constructed
+     * Contains the audio data for the wav file that is being constructed (a list of byte arrays)
      */
-    byte[] audioBytes = null;
-
+    List<byte[]> chunks = new ArrayList<>();
     /**
      * Adds audio data to the wav file from bytes
      * <p>See the "see also" for the structure of the "Data" part of a wav file</p>
-     * @param audioBytes be.jonaseveraert.util.audio data
+     * @throws IllegalArgumentException if ther given audioBytes do not conform to the sample size in bytes. So if it
+     * is not divisible by {@link #blockAlign blockAlign}, which you can get using the {@link #getBlockAlign() getBlockAlign} method
+     * @param audioBytes audio data
      * @see <a href="https://web.archive.org/web/20081210162727/https://ccrma.stanford.edu/CCRMA/Courses/422/projects/WaveFormat/">Wave PCM Soundfile Format</a>
      */
-    public void addBytes(byte[] audioBytes) {
-        if (this.audioBytes != null)
-            this.audioBytes = ArrayUtils.addAll(this.audioBytes, audioBytes);
-        else
-            this.audioBytes = audioBytes;
+    public void addBytes(byte[] audioBytes) throws IllegalArgumentException {
+        // ex. Each sample is 2 bytes long -> don't allow addBytes method if the amount of bytes added is not
+        // Divisible by 2
+        if ((audioBytes.length % blockAlign) != 0) {
+            // the audioBytes added does not conform the sample size
+            throw new IllegalArgumentException("Trying to add a chunk that does not fir evenly; this would cause un-aligned blocks.");
+        }
+        this.chunks.add(audioBytes); // Adding the audioBytes to the list of audio bytes
     }
 
-    // TODO: conversion class and add a getParameters method or something to this for the conversion class
+    // TODO: conversion class and add a getParameters method or something to this for the conversion class (to give it the parameters it needs to convert)
     /**
      * Adds the be.jonaseveraert.util.audio data from a wav file to the wav file you are creating
      * @param file a wav file with the same parameters as the {@code WavFileBuilder}.
@@ -246,11 +252,8 @@ public class WaveFileBuilder {
         }
     }
 
-    /**
-     * The number of activities that hare completed by the process, but are not yet used to update the progressBar UI.
-     */
-    private int activitiesToComplete = 0;
-    private boolean processFinished = false;
+    // TODO: save as mp3 and other formats -> do saveFile in a temp file and then have a AudioConversion classs with static methods to convert wav and other formats to mpp3, ...
+
     /**
      * Saves the file to the location of the {@code outputFile}.
      * @param outputFile The file that will be outputted (not created yet), contains the path
@@ -264,7 +267,10 @@ public class WaveFileBuilder {
         // subchunk2 calculations
 
         //int numBytesInData = data.length()/2;
-        int numBytesInData = audioBytes.length;
+        int numBytesInData = 0;
+        for (byte[] chunk : chunks) {
+            numBytesInData += chunk.length;
+        }
         int numSamples = numBytesInData / (2 * numChannels);
 
         subchunk2Size = numSamples * numChannels * (bitsPerSample / 8);
@@ -293,7 +299,7 @@ public class WaveFileBuilder {
         String f_subchunk2Size = intToLittleEndianHexString(subchunk2Size, 4);
         // data is stored in audioData
 
-        // Combine all hex data into one String (except for the be.jonaseveraert.util.audio data, which is passed in as a byte array
+        // Combine all hex data into one String (audio data, which is passed in as a byte array)
         final String AUDIO_BYTE_STREAM_STRING = f_chunkID  + f_chunkSize + f_format
                 + f_subchunk1ID + f_subchunk1Size + f_audioformat + f_numChannels + f_sampleRate + f_byteRate  + f_blockAlign + f_bitsPerSample
                 + f_subchunk2ID + f_subchunk2Size;
@@ -306,8 +312,7 @@ public class WaveFileBuilder {
 
         // Create & write file
         if (outputFile.createNewFile()) {
-            // Combine byte be.jonaseveraert.util.arrays
-            byte[] audioFileBytes = ArrayUtils.addAll(BYTES, audioBytes);
+            // Combine byte arrays
             if (trackProgress)
                 pbHandler.completeActivity(true);
 
@@ -318,10 +323,14 @@ public class WaveFileBuilder {
 
             // Files.write(new File(filePath.toPath(), bytes); <- -- Check for performance between this and the fos
             try (FileOutputStream fos = new FileOutputStream(outputFile)) {
-                fos.write(audioFileBytes); // Write the bytes into a file
+                // Writing the info chunks
+                fos.write(BYTES);
+                // Writing the audio chunks
+                for (byte[] chunk : chunks)
+                    fos.write(chunk);
             } // catch Really necessary?
             catch (IOException e) {
-                logger.log(Level.SEVERE, "IOException occured");
+                logger.log(Level.SEVERE, "IOException occurred");
                 logger.log(Level.SEVERE, null, e);
 
                 pbHandler.completeProcess();
@@ -429,5 +438,9 @@ public class WaveFileBuilder {
         while((numBytesRead = audioInputStream.read(audioBytes)) != -1);
 
         return audioBytes;
+    }
+
+    public int getBlockAlign() {
+        return blockAlign;
     }
 }
