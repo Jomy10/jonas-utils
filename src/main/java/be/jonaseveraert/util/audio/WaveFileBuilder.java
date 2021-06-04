@@ -261,7 +261,7 @@ public class WaveFileBuilder {
      * @throws IOException If an I/O error occurred
      */
     public boolean saveFile(File outputFile) throws IOException {
-        // TODO: 2 branchs; one for without trackProgress and one with, so that it does not need to check for the trackProgress variable each time
+        // TODO: 2 branches; one for without trackProgress and one with, so that it does not need to check for the trackProgress variable each time
         if (trackProgress)
             pbHandler.startProgressBar();
         // subchunk2 calculations
@@ -444,5 +444,39 @@ public class WaveFileBuilder {
 
     public int getBlockAlign() {
         return blockAlign;
+    }
+
+    /**
+     * Clears all audio data that is inside the {@link #chunks chunks} variable, meaning that you can reuse
+     * the instance of this class to create another audio file with the same specifications.
+     * @since 1.0.3
+     */
+    public void clearAllAudioData() {
+        chunks.clear();
+    }
+
+    /**
+     * With this you will be able to set up the progressbar yourself by overriding the one set up in this class
+     * meaning you can track other progress with the same progressbar that is used for this class. Only do this if you
+     * know what you are doing.
+     * <p><b>[0]</b> numActivites: 2 (opt: name = collecting file data)</p>
+     * <p><b>[1]</b> numActivites: 1 (opt: name = combining byte arrays)</p>
+     * <p><b>[2]</b> numActivites: 1 (opt: name = writing audio data)</p>
+     * @since 1.0.3
+     */
+    public ProgressBarHandler getProgressBarHandler() {
+        return pbHandler;
+    }
+    /**
+     * With this you will be able to set up the progressbar yourself by overriding the one set up in this class
+     * meaning you can track other progress with the same progressbar that is used for this class. Only do this if you
+     * know what you are doing.
+     * <p><b>[0]</b> numActivites: 2 (opt: name = collecting file data)</p>
+     * <p><b>[1]</b> numActivites: 1 (opt: name = combining byte arrays)</p>
+     * <p><b>[2]</b> numActivites: 1 (opt: name = writing audio data)</p>
+     * @since 1.0.3
+     */
+    public void setProgressBarHandler(ProgressBarHandler pbHandler) {
+        this.pbHandler = pbHandler;
     }
 }
