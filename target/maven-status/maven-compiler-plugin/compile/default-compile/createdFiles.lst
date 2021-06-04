@@ -1,10 +1,11 @@
 be/jonaseveraert/util/progressBar/desktop/ProgressBarWindow.class
+be/jonaseveraert/util/audio/WaveFileBuilder.class
 be/jonaseveraert/util/progressBar/ProgressBarHandler.class
 be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.class
 be/jonaseveraert/util/arrays/ArrayUtils.class
 be/jonaseveraert/util/compression/Decompressor.class
+be/jonaseveraert/util/arrays/EmptyArrayException.class
 be/jonaseveraert/util/compression/ByteArrayCannotBeCompressedException.class
-be/jonaseveraert/util/audio/WavFileBuilder.class
 be/jonaseveraert/util/compression/Compressor.class
 be/jonaseveraert/util/arrays/OutputArraySizeTooLargeException.class
 be/jonaseveraert/util/compression/InvalidCompressionLevelException.class

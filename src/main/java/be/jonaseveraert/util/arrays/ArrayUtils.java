@@ -1,5 +1,8 @@
 package be.jonaseveraert.util.arrays;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 /**
  * A collection of methods for arrays.
  * @author Jonas Everaert
@@ -50,14 +53,14 @@ public abstract class ArrayUtils {
     }
 
     /**
-     * Inverts all bytes in an array
+     * Inverts all bytes in an array (e.g. 000101 becomes 111010)
      * @param bytes the array you want to invert
      * @return a new array containing the inverted bytes
+     * @throws EmptyArrayException When the inputted {@code bytes} array is null.
      */
-    public static byte[] invertByteArray(byte[] bytes) {
+    public static byte[] invertByteArray(byte[] bytes) throws EmptyArrayException {
         if (bytes == null) {
-            return null;
-            // TODO: throw empty byte array expcetion
+            throw new EmptyArrayException("The bytes array is null and cannot be null in this method.");
         }
 
         byte[] outputArray = new byte[bytes.length];
@@ -78,6 +81,95 @@ public abstract class ArrayUtils {
         for (int i = 0; i < result.length; i++) {
             result[i] = array[i % array.length];
         }
+        return result;
+    }
+
+    // HEX
+    private static final byte[] HEX_ARRAY = "0123456789ABCDEF".getBytes(StandardCharsets.US_ASCII);
+    /**
+     * Byte array to hex string.
+     * Will use the {@code ASCII encoding}.
+     * @param bytes the byte array you want to transform into a string
+     * @return A String containing the bytes in hex form
+     */
+    public static String bytesToHex(byte[] bytes) {
+        byte[] hexChars = new byte[bytes.length * 2];
+        for (int j = 0; j < bytes.length; j++) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+            hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+        }
+        return new String(hexChars, StandardCharsets.US_ASCII);
+    }
+
+    /**
+     * Byte array to hex string
+     * @param bytes the byte array you want to transform into a string
+     * @param stringEncoding the encoding that will be used for the string
+     * @return A String containing the bytes in hex form
+     */
+    public static String bytesToHex(byte[] bytes, Charset stringEncoding) {
+        byte[] hexChars = new byte[bytes.length * 2];
+        for (int j = 0; j < bytes.length; j++) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+            hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+        }
+        return new String(hexChars, stringEncoding);
+    }
+
+    /**
+     * Byte array to hex string. Will use the {@code ASCII encoding}.
+     * @param bytes the byte array you want to transform into a string
+     * @param addSpace if true will add a space between every hex element
+     * @return A String containing the bytes in hex form
+     */
+    public static String bytesToHex(byte[] bytes, boolean addSpace) {
+        if (!addSpace) {
+            byte[] hexChars = new byte[bytes.length * 2];
+            for (int j = 0; j < bytes.length; j++) {
+                int v = bytes[j] & 0xFF;
+                hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+                hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+            }
+            return new String(hexChars, StandardCharsets.US_ASCII);
+        } else {
+            byte[] hexChars = new byte[bytes.length * 2];
+            for (int j = 0; j < bytes.length; j++) {
+                int v = bytes[j] & 0xFF;
+                hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+                hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+            }
+            String temp = new String(hexChars, StandardCharsets.US_ASCII);
+            String[] tempArray = splitStringEvery(temp, 2);
+            StringBuilder output = new StringBuilder();
+            for (String s : tempArray) {
+                output.append(s).append(" ");
+            }
+            return output.toString();
+        }
+    }
+
+    // String arrays //
+
+    /**
+     * splits a string every {@code interval} th character
+     * @param s the string you want to split
+     * @param interval the interval
+     * @return a String array containing {@code interval} characters per array
+     */
+    public static String[] splitStringEvery(String s, int interval) {
+        int arrayLength = (int) Math.ceil(((s.length() / (double)interval)));
+        String[] result = new String[arrayLength];
+
+        int j = 0;
+        int lastIndex = result.length - 1;
+        for (int i = 0; i < lastIndex; i++) {
+            result[i] = s.substring(j, j + interval);
+            j += interval;
+        } //Add the last bit
+        result[lastIndex] = s.substring(j);
+
         return result;
     }
 }

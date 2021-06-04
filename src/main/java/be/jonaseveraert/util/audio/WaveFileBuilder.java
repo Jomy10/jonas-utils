@@ -418,6 +418,8 @@ public class WaveFileBuilder {
      * Converts a wav file to a byte array containing its audio data
      * @param file the wav file you want to convert
      * @return the data part of a wav file in byte form
+     * @throws UnsupportedAudioFileException if the File does not point to valid audio file data recognized by the system
+     * @throws IOException if an I/O exception occurs
      */
     public static byte[] fileToByteArrray(File file) throws UnsupportedAudioFileException, IOException {
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
