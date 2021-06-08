@@ -2,10 +2,9 @@ package be.jonaseveraert.util.progressBar.desktop;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.util.Arrays;
 
 // todo methods for web and Android
+
 /**
  * Handles a JProgressBar based on sub-processes and activities within that subprocess.<p>
  * I have linked a JProgressBar demo from the Java Docs in the see also<p>
@@ -82,20 +81,16 @@ public class ProgressBarHandler implements be.jonaseveraert.util.progressBar.Pro
 
         // Components
         Component[] components = this.panel.getComponents();
-        System.out.println("components = " + Arrays.toString(components));
         for (Component component : components) {
             if (component instanceof JProgressBar) {
                 this.progressBar = (JProgressBar) component;
-                System.out.println("be.jonaseveraert.util.progressBar: " + progressBar);
             } else if (component instanceof  JTextArea) {
                 this.jTextArea = (JTextArea) component;
             } else if (component instanceof  JScrollPane) {
                 Component[] jScrollPaneComponents = ((JScrollPane) component).getComponents();
                 System.out.println("\n");
-                System.out.println("jScrollPaneComponents = " + Arrays.toString(jScrollPaneComponents));
                 for (Component jScrollPaneComponent : jScrollPaneComponents) {
                     if (jScrollPaneComponent instanceof JTextArea) {
-                        System.out.println("JText Area!");
                         System.out.println(jScrollPaneComponent);
                         this.jTextArea = (JTextArea) jScrollPaneComponent;
                         System.out.println(this.jTextArea);
@@ -103,59 +98,6 @@ public class ProgressBarHandler implements be.jonaseveraert.util.progressBar.Pro
                 }
             }
         }
-    }
-
-    /**
-     * Sets the JPanel's parent visibility.
-     * Make sure you already packed your JFrame before executing this method.
-     * @deprecated Use .setVisible on the JFrame instead
-     */
-    @Deprecated
-    public void showProgressWindow() {
-        Container window = this.panel.getParent();
-        window.setVisible(true);
-    }
-
-    /**
-     * @deprecated Unstable
-     * @param defaultWindowCloseEvent will use default window close event when set to true
-     */
-    @Deprecated
-    public void closeProgressWindow(boolean defaultWindowCloseEvent) {
-        if (defaultWindowCloseEvent) {
-            Container window = this.panel.getParent();
-            window.dispatchEvent(new WindowEvent((Window) window, WindowEvent.WINDOW_CLOSING));
-            if (window instanceof JFrame) {
-                ((JFrame) window).dispose();
-            }
-        } else {
-            closeProgressWindow();
-        }
-    }
-    /**
-     * @deprecated Unstable
-     */
-    @Deprecated
-    public void closeProgressWindow() {
-        try {
-            JFrame window = (JFrame) this.panel.getParent();
-            window.setVisible(false);
-            window.dispose();
-        } catch (ClassCastException ignored) {
-            JLayeredPane window = (JLayeredPane) this.panel.getParent();
-            window.setVisible(false);
-        }
-    }
-
-    /**
-     * Hides the window instead of closing it (assuming you are using hte JFrame) so the window can be reused
-     * for another progress bar
-     * @deprecated unstable
-     */
-    @Deprecated
-    public void hideProgressWindow() {
-        Container window = this.panel.getParent();
-        window.setVisible(false);
     }
 
     public static final Cursor CURSOR_BUSY = Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR);
@@ -226,11 +168,6 @@ public class ProgressBarHandler implements be.jonaseveraert.util.progressBar.Pro
         currentSubProcess = 0;
         // Number of activities completed in the current subprocess
         numActivitiesCompleted = 0;
-        try {
-            showProgressWindow();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         // Calculate what percentage each sub process takes of the progress bar
         // TODO: add a weights system to the sub processes

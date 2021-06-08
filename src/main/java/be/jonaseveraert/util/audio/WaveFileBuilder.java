@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,7 +19,6 @@ import java.util.logging.Logger;
 
 // TODO: support a progress bar class (give a progress bar object in the constructor) -> interface
 
-// TODO: rename to WaveFileBuilder (also the coode example)
 /**
  * <p>Class for building Wav files.</p>
  * <p>In the see also, I linked some resources that were key to making this class. (The first one is especially helpful if
@@ -37,12 +37,12 @@ import java.util.logging.Logger;
  *     ProgressBarHandler pbHandler = new ProgressBarHandler(pbWindow.getjPanel());
  *
  *     // Create the WavFileBuilder
- *     WavFileBuilder wavFileBuilder = new WavFileBuilder(AUDIOFORMAT_PCM, 2, 22050, 16, pbHandler);
+ *     WaveFileBuilder waveFileBuilder = new WaveFileBuilder(AUDIOFORMAT_PCM, 2, 22050, 16, pbHandler);
  *
  *     // For this example, I will add the same audio track 10 times to the
  *     // wav file we are creating
  *     for (int i = 0; i < 10; i++) {
- *         wavFileBuilder.addAudioFile(audioFile);
+ *         waveFileBuilder.addAudioFile(audioFile);
  *     }
  *
  *     // The path to which the wav file will be saved
@@ -50,7 +50,7 @@ import java.util.logging.Logger;
  *
  *     // Show the progressbar and start creating and saving the wavfile
  *     pbWindow.setVisible(true);
- *     wavFileBuilder.saveFile(outputFile);
+ *     waveFileBuilder.saveFile(outputFile);
  *
  *     // Close the window again
  *     pbWindow.setVisible(false);
@@ -65,31 +65,31 @@ import java.util.logging.Logger;
  */
 public class WaveFileBuilder {
     // Strings are in big endian, int in little endian
-    final String chunkID = "RIFF";
-    int chunkSize;
-    final String format = "WAVE";
+    private final String chunkID = "RIFF";
+    private int chunkSize;
+    private final String format = "WAVE";
 
     // Sub chunk 1: format (fmt)
-    final String subchunk1ID = "fmt ";
-    int subchunk1Size = 16; // TODO: make dynamic to support the ExtraParams field (is it really necessary?)
-    final int audioFormat;
-    final int numChannels;
-    final int sampleRate;
-    final int byteRate;
-    final int blockAlign;
-    final int bitsPerSample;
+    private final String subchunk1ID = "fmt ";
+    private int subchunk1Size = 16; // TODO: make dynamic to support the ExtraParams field (is it really necessary?)
+    private final int audioFormat;
+    private final int numChannels;
+    private final int sampleRate;
+    private final int byteRate;
+    private final int blockAlign;
+    private final int bitsPerSample;
 
     // Sub chunk 2: data
-    final String subchunk2ID = "data";
-    int subchunk2Size;
+    private final String subchunk2ID = "data";
+    private int subchunk2Size;
 
     // Logging
-    final Logger logger = Logger.getLogger(WaveFileBuilder.class.getName());
+    private final Logger logger = Logger.getLogger(WaveFileBuilder.class.getName());
     // TODO: remove the logger and throw exceptions instead
 
     // Progress bar
-    ProgressBarHandler pbHandler;
-    final boolean trackProgress;
+    private ProgressBarHandler pbHandler;
+    private boolean trackProgress;
 
     // Variables for the constructor
     public static final int AUDIOFORMAT_PCM = 1;
@@ -172,14 +172,14 @@ public class WaveFileBuilder {
         // Other methods: determine the amount of activities/tasks later
 
         this.pbHandler.setSubProcessInfo(0, "Collecting file data");
-        this.pbHandler.setSubProcessInfo(1, "Combining byte be.jonaseveraert.util.arrays");
-        this.pbHandler.setSubProcessInfo(2, "Writing be.jonaseveraert.util.audio data");
+        this.pbHandler.setSubProcessInfo(1, "Combining byte arrays");
+        this.pbHandler.setSubProcessInfo(2, "Writing audio data");
     }
 
     /**
      * Contains the audio data for the wav file that is being constructed (a list of byte arrays)
      */
-    List<byte[]> chunks = new ArrayList<>();
+    private List<byte[]> chunks = new ArrayList<>();
     /**
      * Adds audio data to the wav file from bytes
      * <p>See the "see also" for the structure of the "Data" part of a wav file</p>
@@ -257,12 +257,12 @@ public class WaveFileBuilder {
     /**
      * Saves the file to the location of the {@code outputFile}.
      * @param outputFile The file that will be outputted (not created yet), contains the path
-     * @return true if the file was created and written to successfully. Else false.
      * @throws IOException If an I/O error occurred
+     * @throws FileAlreadyExistsException if the {@code outputFile} already exists
      */
-    public boolean saveFile(File outputFile) throws IOException {
+    public void saveFile(File outputFile) throws IOException {
         // TODO: 2 branches; one for without trackProgress and one with, so that it does not need to check for the trackProgress variable each time
-        if (trackProgress)
+        if (trackProgress && !pbHandlerOverridden)
             pbHandler.startProgressBar();
         // subchunk2 calculations
 
@@ -330,31 +330,25 @@ public class WaveFileBuilder {
                     fos.write(chunk);
             } // catch Really necessary?
             catch (IOException e) {
-                logger.log(Level.SEVERE, "IOException occurred");
-                logger.log(Level.SEVERE, null, e);
-
                 pbHandler.completeProcess();
                 pbHandler.setMessage("Failed to create file.");
-                return false;
+
+
+               throw e;
             } // Last process finished
             if (trackProgress)
                 pbHandler.completeActivity(true);
 
-            logger.log(Level.INFO, "File created: " + outputFile.getName());
             if (trackProgress) {
                 pbHandler.completeProcess();
                 pbHandler.setMessage("File created: " + outputFile.getName());
             }
-            return true;
         } else {
-            //System.out.println("File already exists.");
-            logger.log(Level.WARNING, "File already exists.");
             if (trackProgress) {
                 pbHandler.completeProcess();
                 pbHandler.setMessage("File " + outputFile.getName() + " already exists.");
             }
-            // TODO: throw file already exists exception en @throws in java doc zetten dan
-            return false;
+            throw new FileAlreadyExistsException("The file you are trying to write to already exists.");
         }
     }
 
@@ -417,9 +411,9 @@ public class WaveFileBuilder {
     /**
      * Converts a wav file to a byte array containing its audio data
      * @param file the wav file you want to convert
-     * @return the data part of a wav file in byte form
      * @throws UnsupportedAudioFileException if the File does not point to valid audio file data recognized by the system
      * @throws IOException if an I/O exception occurs
+     * @return the data part of a wav file in byte form
      */
     public static byte[] fileToByteArrray(File file) throws UnsupportedAudioFileException, IOException {
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
@@ -455,28 +449,39 @@ public class WaveFileBuilder {
         chunks.clear();
     }
 
+    private boolean pbHandlerOverridden = false;
     /**
      * With this you will be able to set up the progressbar yourself by overriding the one set up in this class
      * meaning you can track other progress with the same progressbar that is used for this class. Only do this if you
-     * know what you are doing.
+     * know what you are doing. You will also have to call the {@code pbHandler.startProgressBar();} manually.
      * <p><b>[0]</b> numActivites: 2 (opt: name = collecting file data)</p>
      * <p><b>[1]</b> numActivites: 1 (opt: name = combining byte arrays)</p>
      * <p><b>[2]</b> numActivites: 1 (opt: name = writing audio data)</p>
      * @since 1.0.3
      */
     public ProgressBarHandler getProgressBarHandler() {
+        this.trackProgress = true;
+        this.pbHandlerOverridden = true;
         return pbHandler;
     }
     /**
      * With this you will be able to set up the progressbar yourself by overriding the one set up in this class
      * meaning you can track other progress with the same progressbar that is used for this class. Only do this if you
-     * know what you are doing.
+     * know what you are doing. You will also have to call the {@code pbHandler.startProgressBar();} manually.
      * <p><b>[0]</b> numActivites: 2 (opt: name = collecting file data)</p>
      * <p><b>[1]</b> numActivites: 1 (opt: name = combining byte arrays)</p>
      * <p><b>[2]</b> numActivites: 1 (opt: name = writing audio data)</p>
      * @since 1.0.3
      */
     public void setProgressBarHandler(ProgressBarHandler pbHandler) {
+        this.trackProgress = true;
+        this.pbHandlerOverridden = true;
         this.pbHandler = pbHandler;
+    }
+
+    // Temporary method
+    boolean debug = false;
+    public void enableDebug() {
+        this.debug = true;
     }
 }
