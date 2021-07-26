@@ -123,6 +123,9 @@ public class ProgressBarHandler implements be.jonaseveraert.util.progressBar.Pro
      * Will add "..." after the sub-process' name
      */
     public static final int SUBPROCESSINFO_BUSY = 0;
+    /**
+     * Will add "." after the sub process' name
+     */
     public static final int SUBPROCESSINFO_DONE = 1;
     /**
      * Sets the name and the state of the subprocess
@@ -151,7 +154,7 @@ public class ProgressBarHandler implements be.jonaseveraert.util.progressBar.Pro
         subProcessInfoObject[1] = SUBPROCESSINFO_BUSY;
     }
 
-    double percentagePerSubProcess;
+    private double percentagePerSubProcess;
     /**
      * Initiates variables and components to start the progress bar and (tries to) show the progress window.
      */

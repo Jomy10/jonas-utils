@@ -4,9 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a9aea1c-eec3-47fc-8566-f5e04d93d2ac" name="Default Changelist" comment="Edited the WaveFileBuilder class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/io/FileUtils.java" afterDir="false" />
+    <list default="true" id="9a9aea1c-eec3-47fc-8566-f5e04d93d2ac" name="Default Changelist" comment="Fixed some things">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_06.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_SparseBitSet_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_19.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math3_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_5_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_4_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_4_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_30.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/WordDocument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordParagraph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordPicture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/paragraphObjects/WordParagraphBreak.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/paragraphObjects/WordParagraphObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/img/ImgUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jonas-utils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jonas-utils.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/audio/WaveFileBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/audio/WaveFileBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" afterDir="false" />
@@ -58,6 +78,7 @@
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/serialized-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +89,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -108,6 +130,26 @@
   </component>
   <component name="ReaderModeSettings">
     <option name="showRenderedDocs" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="WordDocument" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="be.jonaseveraert.util.files.msWord.WordDocument" />
+      <module name="jonas-utils" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="be.jonaseveraert.util.files.msWord.objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.WordDocument" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -188,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622823386414</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed some things">
+      <created>1623168299793</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1623168299793</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,6 +262,7 @@
     <MESSAGE value="Rewritten code for the WavefileBuilder" />
     <MESSAGE value="Dependencies removed, new methods added" />
     <MESSAGE value="Edited the WaveFileBuilder class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited the WaveFileBuilder class" />
+    <MESSAGE value="Fixed some things" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some things" />
   </component>
 </project>

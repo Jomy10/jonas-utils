@@ -200,56 +200,43 @@ public class WaveFileBuilder {
 
     // TODO: conversion class and add a getParameters method or something to this for the conversion class (to give it the parameters it needs to convert)
     /**
-     * Adds the be.jonaseveraert.util.audio data from a wav file to the wav file you are creating
+     * Adds the audio data from a wav file to the wav file you are creating
      * @param file a wav file with the same parameters as the {@code WavFileBuilder}.
-     * @return true if the file's be.jonaseveraert.util.audio data was successfully added to the wav file's audioData byte array, false otherwise
+     * @throws IOException if an I/O exception occurs
+     * @throws UnsupportedAudioFileException if the {@code File} does not point to valid audio file data recognized by the system
+     * @throws IllegalArgumentException (from {@link #addBytes(byte[]) addBytes method}) if the given audioBytes do not
+     * conform to the sample size in bytes. So if it is not divisible by blockAlign, which you can get using the
+     * {@link #getBlockAlign() getBlockAlign} method
+     * @implNote this method does not work on Android. Use the {@link #addBytes(byte[]) addBytes} method instead.
      */
-    public boolean addAudioFile(File file) {
+    public void addAudioFile(File file) throws UnsupportedAudioFileException, IOException, IllegalArgumentException {
         // TODO: clean up and rewrite
-        //int totalSamplesRead = 0;
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-            AudioFormat audioFormat = audioInputStream.getFormat();
-            int bytesPerSample = audioFormat.getFrameSize();
-            if (bytesPerSample == AudioSystem.NOT_SPECIFIED) {
-                // some be.jonaseveraert.util.audio formats may have unspecified frame size
-                // in that case we may read any amount of bytes
-                bytesPerSample = -1;
-            }
-            // frame = sample
-            long numSamples = audioInputStream.getFrameLength();
-
-            // Determine the amount of bytes the data of the file contains
-            int numBytes = (int) (numSamples * bytesPerSample);
-            // Check if it is the same as the WavFileBuilder specifications
-            if (bytesPerSample != (bitsPerSample / 8) * numChannels) {
-                System.out.println("bitsPerSample: " + bitsPerSample + " | numChannels: " + numChannels);
-                // TODO: convert file
-                logger.log(Level.WARNING, "The bytesPerSample of the inputted file does not equal that of the WavFile you are building. TODO: file conversion");
-                return false;
-            }
-            byte[] audioBytes = new byte[numBytes];
-            try {
-                int numBytesRead = 0;
-                //int numSamplesRead = 0;
-                // Try to read numBytes bytes from the file
-                while((numBytesRead = audioInputStream.read(audioBytes)) != -1) {
-                    // Calculate the number of frames actually read.
-                    //numSamplesRead = numBytesRead / bytesPerSample;
-                    //totalSamplesRead += numSamplesRead;
-                }
-                // Audio data is now in the audioBytes array
-                //logger.log(Level.INFO, "Succesfully read all be.jonaseveraert.util.audio data from the file.");
-                this.addBytes(audioBytes); // Add the read be.jonaseveraert.util.audio data to the file
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        } catch (UnsupportedAudioFileException | IOException e) {
-            e.printStackTrace();
-            return false;
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+        AudioFormat audioFormat = audioInputStream.getFormat();
+        int bytesPerSample = audioFormat.getFrameSize();
+        if (bytesPerSample == AudioSystem.NOT_SPECIFIED) {
+            // some audio formats may have unspecified frame size
+            // in that case we may read any amount of bytes
+            bytesPerSample = -1;
         }
+        // frame = sample
+        long numSamples = audioInputStream.getFrameLength();
+
+        // Determine the amount of bytes the data of the file contains
+        int numBytes = (int) (numSamples * bytesPerSample);
+        // Check if it is the same as the WavFileBuilder specifications
+        if (bytesPerSample != (bitsPerSample / 8) * numChannels) {
+            // TODO: make a file converter class and throw an exception here (wrong audio format or something, idk)
+            logger.log(Level.WARNING, "The bytesPerSample of the inputted file does not equal that of the WavFile you are building. TODO: file conversion");
+            throw new RuntimeException("TODO: Inputted wave audio format does not match the audio format specified in the WaveFileBuilder.");
+        }
+        byte[] audioBytes = new byte[numBytes];
+        int numBytesRead = 0;
+        // Try to read numBytes bytes from the file
+        while((numBytesRead = audioInputStream.read(audioBytes)) != -1); // TODO: check if still works with ; instead of {}, TODO: check if works without the numBytesRead variable
+
+        // Audio data is now in the audioBytes array
+        this.addBytes(audioBytes); // Add the read audio data to the file (to the list of audio data that will be written to the file)
     }
 
     // TODO: save as mp3 and other formats -> do saveFile in a temp file and then have a AudioConversion classs with static methods to convert wav and other formats to mpp3, ...
