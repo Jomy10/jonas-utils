@@ -1,0 +1,75 @@
+@options
+@argfile
+-classpath
+'/Users/jonaseveraert/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar:/Users/jonaseveraert/.m2/repository/org/apache/poi/poi/5.0.0/poi-5.0.0.jar:/Users/jonaseveraert/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/Users/jonaseveraert/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar:/Users/jonaseveraert/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/Users/jonaseveraert/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/jonaseveraert/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar:/Users/jonaseveraert/.m2/repository/com/zaxxer/SparseBitSet/1.2/SparseBitSet-1.2.jar:/Users/jonaseveraert/.m2/repository/org/apache/poi/poi-ooxml/4.1.2/poi-ooxml-4.1.2.jar:/Users/jonaseveraert/.m2/repository/org/apache/poi/poi-ooxml-schemas/4.1.2/poi-ooxml-schemas-4.1.2.jar:/Users/jonaseveraert/.m2/repository/org/apache/xmlbeans/xmlbeans/3.1.0/xmlbeans-3.1.0.jar:/Users/jonaseveraert/.m2/repository/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar:/Users/jonaseveraert/.m2/repository/com/github/virtuald/curvesapi/1.06/curvesapi-1.06.jar:/Users/jonaseveraert/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'8'
+-sourcepath
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2021. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/jonaseveraert/Documents/jonas-utils/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Jonas\' Utils 1.1 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' '/Users/jonaseveraert/Documents/jonas-utils/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Jonas\' Utils 1.1 API'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/progressBar/ProgressBarHandler.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/progressBar/desktop/ProgressBarWindow.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/img/ImgUtils.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/audio/WaveFileBuilder.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/arrays/ArrayUtils.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/arrays/OutputArraySizeTooLargeException.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/arrays/EmptyArrayException.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/compression/InvalidCompressionLevelException.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/compression/Compressor.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/compression/ByteArrayCannotBeCompressedException.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/compression/Decompressor.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/files/msWord/WordDocument.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordPicture.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordObject.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordParagraph.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/files/msWord/objects/paragraphObjects/WordParagraphObject.java'
+'/Users/jonaseveraert/Documents/jonas-utils/src/main/java/be/jonaseveraert/util/files/msWord/objects/paragraphObjects/WordParagraphBreak.java'
+/Users/jonaseveraert/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar = 1622573930000
+/Users/jonaseveraert/.m2/repository/org/apache/poi/poi/5.0.0/poi-5.0.0.jar = 1627287255000
+/Users/jonaseveraert/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar = 1627287254000
+/Users/jonaseveraert/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar = 1627287254000
+/Users/jonaseveraert/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar = 1627287255000
+/Users/jonaseveraert/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar = 1627287255000
+/Users/jonaseveraert/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar = 1627287255000
+/Users/jonaseveraert/.m2/repository/com/zaxxer/SparseBitSet/1.2/SparseBitSet-1.2.jar = 1627287255000
+/Users/jonaseveraert/.m2/repository/org/apache/poi/poi-ooxml/4.1.2/poi-ooxml-4.1.2.jar = 1627287495000
+/Users/jonaseveraert/.m2/repository/org/apache/poi/poi-ooxml-schemas/4.1.2/poi-ooxml-schemas-4.1.2.jar = 1627287498000
+/Users/jonaseveraert/.m2/repository/org/apache/xmlbeans/xmlbeans/3.1.0/xmlbeans-3.1.0.jar = 1627287493000
+/Users/jonaseveraert/.m2/repository/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar = 1622621614000
+/Users/jonaseveraert/.m2/repository/com/github/virtuald/curvesapi/1.06/curvesapi-1.06.jar = 1627287491000
+/Users/jonaseveraert/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar = 1627293516000
+/Users/jonaseveraert/Documents/jonas-utils/src/main/java = 1622661355000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/constant-values.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/overview-tree.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/index.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/overview-frame.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/allclasses-noframe.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/serialized-form.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/index-all.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/deprecated-list.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/script.js = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/stylesheet.css = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/overview-summary.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/help-doc.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/allclasses-frame.html = 1627335901000
+/Users/jonaseveraert/Documents/jonas-utils/target/apidocs/package-list = 1627335901000

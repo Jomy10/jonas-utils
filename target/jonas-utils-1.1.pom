@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Project -->
+    <groupId>be.jonaseveraert.utils</groupId>
+    <artifactId>jonas-utils</artifactId>
+    <version>1.1</version>
+
+    <name>Jonas' Utils</name>
+    <description>
+        This library is a collection of classes that I needed in my coding adventure. I hope it can help someone.
+    </description>
+    <url>https://jonaseveraert.be/utils</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>13.0</version>
+        </dependency>
+        <!-- Plugins for the profile -->
+        <!--dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.2.1</version>
+        </dependency-->
+    </dependencies>
+
+    <!-- Deploying on Maven Central: https://dzone.com/articles/how-to-create-a-java-library-from-scratch-to-maven -->
+    <!-- Also see https://central.sonatype.org/publish/publish-maven/ -->
+
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Jonas Everaert</name>
+            <email>jonas.vbs4@gmail.com</email>
+            <url>https://jonaseveraert.be</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:Jomy10/jonas-utils.git</connection>
+        <developerConnection>scm:git:ssh://github.com:Jomy10/jonas-utils.git</developerConnection>
+        <url>https://github.com/Jomy10/jonas-utils.git</url>
+    </scm>
+
+
+    <!--
+        Maven Central demands you to send the Javadoc and source code. So you have to create it when building your artifacts.
+        You must also sign the artifacts you are sending to Maven Central.
+        Since we need to do it only when deploying to Maven Central, it might be a good idea to create a profile for this.
+    -->
+
+    <!-- Release using: mvn clean deploy -P release (CMD + ENTER in IntelliJ!) -->
+    <!-- and: mvn nexus-staging:release -DstagingRepositoryId= -->
+    <!-- problems:
+       - https://central.sonatype.org/publish/requirements/gpg/#distributing-your-public-key -> gpg - -keyserver keyserver.ubuntu.com - -send-keys ##key dat hij zegt dat hij niet vindt## || - - = 2 streepjes direct na elkaar
+       -->
+    <profiles>
+        <profile>
+            <id>release</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <!--javadocExecutable>${java.home}/bin/javadoc</javadocExecutable-->
+                            <javadocExecutable>/Library/Java/JavaVirtualMachines/jdk1.8.0_281.jdk/Contents/Home/bin/javadoc</javadocExecutable>
+                            <sourcepath>src/main/java</sourcepath>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <!-- Add nexus-staging-maven-plugin -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>1.6.8</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverId>ossrh</serverId>
+                        <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
