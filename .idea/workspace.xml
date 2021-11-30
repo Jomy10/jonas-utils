@@ -183,7 +183,28 @@
       <option name="project" value="LOCAL" />
       <updated>1638284333857</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Docs">
+      <created>1638296101677</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1638296101677</updated>
+    </task>
+    <task id="LOCAL-00015" summary="commit">
+      <created>1638296121217</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1638296121217</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update README.md">
+      <created>1638296380046</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1638296380046</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +232,9 @@
     <MESSAGE value="Edited the WaveFileBuilder class" />
     <MESSAGE value="Fixed some things" />
     <MESSAGE value="New: WordDocument" />
-    <option name="LAST_COMMIT_MESSAGE" value="New: WordDocument" />
+    <MESSAGE value="Docs" />
+    <MESSAGE value="commit" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
 </project>

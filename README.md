@@ -13,4 +13,5 @@ Source code in the src folder
 
 If you're using this library on **Android**, I advice you to use the 1.0.4 version instead of the 1.1 version.
 
-This library is not being actively developped at the moment.
+This library is not being actively developped at the moment. Some of the classes might be recoded to Rust in the future
+so it can be used across multiple programming languages.
