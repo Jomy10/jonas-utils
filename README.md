@@ -9,9 +9,8 @@ I just hope this can be useful for someone.
 You can copy the dependency or download the library from Maven Centra
 Maven Central: https://search.maven.org/artifact/be.jonaseveraert.utils/jonas-utils/1.0.4/jar
 
+- [Docs](https://jomy10.github.io/jonas-utils/docs)
+
 Source code in the src folder
-Other folders contain javadoc and stuff.
 
 This library is not being actively developped at the moment.
-
-[test](https://jomy10.github.io/jonas-utils/docs)
