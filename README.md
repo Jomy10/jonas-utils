@@ -12,4 +12,4 @@ Maven Central: https://search.maven.org/artifact/be.jonaseveraert.utils/jonas-ut
 Source code in the src folder
 Other folders contain javadoc and stuff.
 
-P.S. I'll add a better README later with instructions
+This library is not being actively developped at the moment.
