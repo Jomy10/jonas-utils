@@ -1,5 +1,9 @@
 be.jonaseveraert.util.arrays
 be.jonaseveraert.util.audio
 be.jonaseveraert.util.compression
+be.jonaseveraert.util.files.msWord
+be.jonaseveraert.util.files.msWord.objects
+be.jonaseveraert.util.files.msWord.objects.paragraphObjects
+be.jonaseveraert.util.img
 be.jonaseveraert.util.progressBar
 be.jonaseveraert.util.progressBar.desktop

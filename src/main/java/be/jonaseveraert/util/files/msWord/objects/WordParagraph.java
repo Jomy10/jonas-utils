@@ -1,10 +1,10 @@
 package be.jonaseveraert.util.files.msWord.objects;
 
 import be.jonaseveraert.util.files.msWord.WordDocument;
-import com.sun.istack.internal.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 /**
- * Represents a paragraph in Word <br></br>
+ * <p>Represents a paragraph in Word</p>
  * TODO: implement {@link org.apache.poi.wp.usermodel.Paragraph}
  */
 public class WordParagraph extends WordObject {

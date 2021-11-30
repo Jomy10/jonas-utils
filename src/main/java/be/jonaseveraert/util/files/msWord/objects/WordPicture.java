@@ -19,6 +19,7 @@ public class WordPicture extends WordObject implements Picture {
     /**
      * Creates a new image that can be inserted in a {@link be.jonaseveraert.util.files.msWord.WordDocument WordDocument}
      * @param imgFile the image file
+     * @throws IOException if an i/o exception occurs
      */
     public WordPicture(File imgFile) throws IOException {
         this.imgFile = imgFile;

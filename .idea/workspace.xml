@@ -4,31 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a9aea1c-eec3-47fc-8566-f5e04d93d2ac" name="Default Changelist" comment="Fixed some things">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_06.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_SparseBitSet_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math3_3_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_5_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_4_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_4_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/WordDocument.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordParagraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordPicture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/paragraphObjects/WordParagraphBreak.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/paragraphObjects/WordParagraphObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/img/ImgUtils.java" afterDir="false" />
+    <list default="true" id="9a9aea1c-eec3-47fc-8566-f5e04d93d2ac" name="Default Changelist" comment="New: WordDocument">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jonas-utils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jonas-utils.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/audio/WaveFileBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/audio/WaveFileBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/WordDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/WordDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordParagraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordParagraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordPicture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/WordPicture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/paragraphObjects/WordParagraphBreak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/files/msWord/objects/paragraphObjects/WordParagraphBreak.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/img/ImgUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/jonaseveraert/util/img/ImgUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/allclasses-noframe.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/ArrayUtils.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/be/jonaseveraert/util/arrays/ArrayUtils.html" afterDir="false" />
@@ -77,9 +63,11 @@
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-frame.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apidocs/package-list" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/package-list" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/serialized-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/be/jonaseveraert/util/progressBar/desktop/ProgressBarHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623168299793</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="New: WordDocument">
+      <created>1627293384119</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1627293384119</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +258,7 @@
     <MESSAGE value="Dependencies removed, new methods added" />
     <MESSAGE value="Edited the WaveFileBuilder class" />
     <MESSAGE value="Fixed some things" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some things" />
+    <MESSAGE value="New: WordDocument" />
+    <option name="LAST_COMMIT_MESSAGE" value="New: WordDocument" />
   </component>
 </project>

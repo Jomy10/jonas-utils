@@ -201,13 +201,13 @@ public class WaveFileBuilder {
     // TODO: conversion class and add a getParameters method or something to this for the conversion class (to give it the parameters it needs to convert)
     /**
      * Adds the audio data from a wav file to the wav file you are creating
+     * <p>#this method does not work on Android. Use the {@link #addBytes(byte[]) addBytes} method instead.</p>
      * @param file a wav file with the same parameters as the {@code WavFileBuilder}.
      * @throws IOException if an I/O exception occurs
      * @throws UnsupportedAudioFileException if the {@code File} does not point to valid audio file data recognized by the system
      * @throws IllegalArgumentException (from {@link #addBytes(byte[]) addBytes method}) if the given audioBytes do not
      * conform to the sample size in bytes. So if it is not divisible by blockAlign, which you can get using the
      * {@link #getBlockAlign() getBlockAlign} method
-     * @implNote this method does not work on Android. Use the {@link #addBytes(byte[]) addBytes} method instead.
      */
     public void addAudioFile(File file) throws UnsupportedAudioFileException, IOException, IllegalArgumentException {
         // TODO: clean up and rewrite
@@ -445,6 +445,7 @@ public class WaveFileBuilder {
      * <p><b>[1]</b> numActivites: 1 (opt: name = combining byte arrays)</p>
      * <p><b>[2]</b> numActivites: 1 (opt: name = writing audio data)</p>
      * @since 1.0.3
+     * @return the progressbar handler currently used by the {@code WavFileBuilder}
      */
     public ProgressBarHandler getProgressBarHandler() {
         this.trackProgress = true;
@@ -458,6 +459,7 @@ public class WaveFileBuilder {
      * <p><b>[0]</b> numActivites: 2 (opt: name = collecting file data)</p>
      * <p><b>[1]</b> numActivites: 1 (opt: name = combining byte arrays)</p>
      * <p><b>[2]</b> numActivites: 1 (opt: name = writing audio data)</p>
+     * @param pbHandler the progressbar handler
      * @since 1.0.3
      */
     public void setProgressBarHandler(ProgressBarHandler pbHandler) {
